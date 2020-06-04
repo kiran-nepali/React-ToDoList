@@ -19,6 +19,7 @@ class App extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.addItem = this.addItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.updateList = this.updateList.bind(this);
   }
 
   handleInput(e){
@@ -51,7 +52,18 @@ class App extends React.Component {
     this.setState({
       items:filteredItems
     })
+  }
 
+  updateList(text,key){
+    const items = this.state.items;
+    items.map(item => {
+      if(item.key === key){
+        item.text = text;
+      }
+    });
+    this.setState({
+      items:items
+    })
   }
   
   render(){
@@ -64,7 +76,11 @@ class App extends React.Component {
             <button type="submit">Add</button>
           </form>
       </header>
-      <ListItem items = {this.state.items} deleteItem={this.deleteItem}/>
+      <ListItem 
+        items = {this.state.items} 
+        deleteItem={this.deleteItem}
+        updateList = {this.updateList}
+      />
       
     </div>
     

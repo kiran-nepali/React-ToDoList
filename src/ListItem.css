@@ -17,3 +17,13 @@
     right: 10px;
     cursor: pointer;
 }
+
+.list p input{
+    border: 0;
+    background-color: transparent;
+    color: #fff;
+}
+
+.list p input:focus{
+    outline: none;
+}
